@@ -1,0 +1,35 @@
+html {
+  background-color: rgba(205, 226, 248, 0.3);
+
+}
+
+body {
+  margin: 20px;
+  width: 100%;
+}
+
+#root {
+  width: 100%;
+
+
+}
+
+#bodyFeild {
+  border-radius: 25px;
+  margin-top: 3%;
+  margin-left: 25%;
+  margin-right: 25%;
+  border-style: solid;
+  background-color: rgba(255, 255, 255);
+  min-width: 500px;
+}
+
+#navBar {
+  border-bottom: solid rgba(0, 0, 0, .2);
+  border-radius: 1px;
+
+}
+
+#banner {
+  text-align: center;
+}
