@@ -3,24 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 
-class ButtonBar extends React.Component {
-  render() {
-     //list all buttons, load them into a single array after creation then add them to a map to send to the DOM
-     var buttonList = ["Home", "Contact", "Web Scraper", "Mongo Backend"];
-     for(var i = 0; i < buttonList.length; i++) {
-       buttonList[i] = <Buttons name={buttonList[i]} />
-     };
-     const listedButtons = buttonList.map((button) =>
-      button
-     );
-
-    return(
-      <div id="navBar">
-      {listedButtons}
-      </div>
-    );
-  }
-}
+// class ButtonBar extends React.Component {
+//   render() {
+//      //list all buttons, load them into a single array after creation then add them to a map to send to the DOM
+//     return(
+//
+//     );
+//   }
+// }
 
 
 class Buttons extends React.Component {
@@ -31,46 +21,90 @@ class Buttons extends React.Component {
   handleClick(i) {
     //change both <bodyFeild or another div added later> as well as the PageDescription and Project descriptoon
     console.log('triggered');
-    PageDescription()
+
+
   }
   render() {
     return (
-      <button name={this.props.name} onClick={this.handleClick}>{this.props.name}</button>
+      <button name={this.props.name} onClick={this.props.buttonClick}>{this.props.name}</button>
     );
   }
 }
 
-class PageDescription extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      message: "Default content"
-    }
-  }
-  render(i) {
-    return (
-      <div id="generalDescription">
-      <p name="description">{this.state.message}</p>
-      </div>
-    );
-  }
-
-}
+// class PageDescription extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       message: "Default content"
+//     }
+//   }
+//
+//   handleClick2() {
+//     console.log("LOL")
+//   }
+//   render(i) {
+//     //make some API call to the backend to get this informati
+//
+//     return (
+//       <div id="generalDescription">
+//       <p name="description">{this.message}</p>
+//       </div>
+//     );
+//   }
+//
+// }
 
 class BodyFeild extends React.Component {
+
+  //default text
+  state = {
+    generalText: 'Welcome to my portfolio! I put together this small site to demonstrate some of my knowledge as well as grow my skillset. This site is built using MERN as a stack, when I started this project I had little frontend and backend knowlege. Spending time here has helped teach me how different components link together as well as how to manage a fullstack project from start to finish (though this is ever growing). Please feel free to check it out, any advice or comments are always welcome! All of my contact details will be available on the contact page.',
+    projectText: '',
+    codeText: ''
+  }
+
+  //what we want to do is dynamically grab the relevant information such as grabbing information from the mongo backend!!!
+  grabNewText(event) {
+    var generalText = ''
+    var projectText = ''
+    var codeText = ''
+    this.setState({
+      generalText: generalText,
+      projectText: projectText,
+      codeText: codeText
+    });
+
+    //this is the button that was clicked
+    console.log(event.target.name)
+  }
+
+
   render() {
+
+    var buttonList = ["Home", "Contact", "Web Scraper", "Mongo Backend"];
+    var onClickList = ["homeClick", "contactClick", "webScraperClick", "MongoClick"]
+    for(var i = 0; i < buttonList.length; i++) {
+      buttonList[i] = <Buttons name={buttonList[i]} buttonClick={this.grabNewText.bind(this)} />
+    };
+    const listedButtons = buttonList.map((button) =>
+     button
+    );
     return (
       <div id="bodyFeild">
-        <h1 id="banner">Welcome to my Portfolio {this.props.name}</h1>
-        <ButtonBar />
-        <p> Goals I want to accomplish</p>
-        <ul>
-          <li>add a box within this box for the code</li>
-          <li>add a Sidebar menu</li>
-          <li>find a way to render new information within the feild based on the button click</li>
-        </ul>
+        <h1 id="banner">Welcome to my Portfolio</h1>
+        <div id="navBar">
+        {listedButtons}
+        </div>
+        <div id="generalDescription">
+          {this.state.generalText}
+        </div>
+        <div id="projectDescription">
+          {this.state.projectText}
+        </div>
+        <div id="codeSnippet">
+          {this.state.codeText}
+        </div>
 
-        <PageDescription />
       </div>
     );
   }

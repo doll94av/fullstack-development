@@ -27,6 +27,7 @@ body {
 #navBar {
   border-bottom: solid rgba(0, 0, 0, .2);
   border-radius: 1px;
+  text-align: center;
 
 }
 
@@ -38,4 +39,20 @@ body {
   border: solid;
   padding-left: 5px;
   padding-right: 5px;
+}
+
+#codeSnippet {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  min-height: 100px;
+}
+
+
+#projectDescription {
+  margin-top: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  min-height: 100px;
 }
