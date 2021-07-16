@@ -3,16 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 
-// class ButtonBar extends React.Component {
-//   render() {
-//      //list all buttons, load them into a single array after creation then add them to a map to send to the DOM
-//     return(
-//
-//     );
-//   }
-// }
-
-
 class Buttons extends React.Component {
   constructor(props) {
     super(props)
@@ -31,28 +21,6 @@ class Buttons extends React.Component {
   }
 }
 
-// class PageDescription extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       message: "Default content"
-//     }
-//   }
-//
-//   handleClick2() {
-//     console.log("LOL")
-//   }
-//   render(i) {
-//     //make some API call to the backend to get this informati
-//
-//     return (
-//       <div id="generalDescription">
-//       <p name="description">{this.message}</p>
-//       </div>
-//     );
-//   }
-//
-// }
 
 class BodyFeild extends React.Component {
 
@@ -68,6 +36,13 @@ class BodyFeild extends React.Component {
     var generalText = ''
     var projectText = ''
     var codeText = ''
+
+    //test logic
+    //currently this works with no spaces (might want to add logic to trim spaces if I really care about it)
+
+    fetch('http://localhost:3001/'+ event.target.name)
+      .then(response => response.json())
+      .then(data => console.log(data));
     this.setState({
       generalText: generalText,
       projectText: projectText,
@@ -81,8 +56,7 @@ class BodyFeild extends React.Component {
 
   render() {
 
-    var buttonList = ["Home", "Contact", "Web Scraper", "Mongo Backend"];
-    var onClickList = ["homeClick", "contactClick", "webScraperClick", "MongoClick"]
+    var buttonList = ["Home", "Contact", "WebScraper", "MongoBackend"];
     for(var i = 0; i < buttonList.length; i++) {
       buttonList[i] = <Buttons name={buttonList[i]} buttonClick={this.grabNewText.bind(this)} />
     };
