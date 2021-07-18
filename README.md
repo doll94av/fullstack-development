@@ -26,4 +26,4 @@ The frontend language used for this project will be React.JS. Based on the requi
 At the current moment I am leaning towards Node.js with the express framework. In general it seems that there are really no bad options but I am seeing node pop-up quite often in people's recommendations. Realistically there are no system/timing requirements for this project so its mostly on what I want to learn. I believe with that being said, running both js in the frontend and backend will help ease the learning curve as they _should_ be closely related.
 
 ### Database
-TBD
+After some consideration as well as reading that the (MEA(R)N) stack is relatively popular this choice makes sense in the context of this project. Most of what I am going to be working with is parsed JSON which then gets transformed into data for the frontend. Because of this, MongoDB seems to be the easiest to work with in this scenario.
