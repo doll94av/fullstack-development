@@ -9,10 +9,11 @@ class Buttons extends React.Component {
     super(props)
     this.handleClick = this.handleClick.bind(this);
   }
+
+  //will need to test but I do believe that this will be deprecated and done a seperate way
   handleClick(i) {
     //change both <bodyFeild or another div added later> as well as the PageDescription and Project descriptoon
     console.log('triggered');
-
 
   }
   render() {
@@ -43,7 +44,7 @@ class BodyFeild extends React.Component {
       .then(response => response.json())
       .then(data =>
         this.setState({
-          generalText: data.generalText,
+          generalText: <h1>{data.generalText}</h1>,
           projectText: data.projectText,
           codeText: data.codeText
         })
@@ -64,7 +65,7 @@ class BodyFeild extends React.Component {
 
   render() {
 
-    var buttonList = ["Home", "Contact", "WebScraper", "MongoBackend"];
+    var buttonList = ["Home", "Contact", "WebScraper", "MongoBackend", "Blog"];
     for(var i = 0; i < buttonList.length; i++) {
       buttonList[i] = <Buttons name={buttonList[i]} buttonClick={this.grabNewText.bind(this)} />
     };

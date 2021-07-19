@@ -8,6 +8,10 @@ body {
   width: 100%;
 }
 
+.button {
+  color: black;
+
+}
 #root {
   width: 100%;
 }
@@ -31,10 +35,11 @@ body {
 
 #banner {
   text-align: center;
+  font-family: Bookman;
+
 }
 
 #generalDescription {
-  border: solid;
   padding-left: 5px;
   padding-right: 5px;
 }
