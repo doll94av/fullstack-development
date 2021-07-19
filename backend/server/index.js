@@ -1,19 +1,23 @@
 const express = require("express");
-const allowControlOrigin = "https://localhost:3000"
+const allowControlOrigin = "http://localhost:3000"
 const PORT = process.env.PORT || 3001;
-
+var database = require('./mongo.js');
 const app = express();
+
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
 
 app.get("/", (req, res) => {
-  res.json({ message: "test: /"});
+
 });
 
 app.get("/home", (req, res) => {
   res.set('Access-Control-Allow-Origin', allowControlOrigin);
+
+  const result = database.test();
+  console.log(database.testresult());
   res.json({
     generalText: "we clicked the home button and we got this info from the backend",
     projectText: "On the home page we will probably just talk about work experience and the project",

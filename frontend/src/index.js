@@ -13,7 +13,6 @@ class Buttons extends React.Component {
   //will need to test but I do believe that this will be deprecated and done a seperate way
   handleClick(i) {
     //change both <bodyFeild or another div added later> as well as the PageDescription and Project descriptoon
-    console.log('triggered');
 
   }
   render() {
@@ -34,9 +33,6 @@ class BodyFeild extends React.Component {
 
   //what we want to do is dynamically grab the relevant information such as grabbing information from the mongo backend!!!
   grabNewText(event) {
-    var generalText = ''
-    var projectText = ''
-    var codeText = ''
 
     //currently this works with no spaces (might want to add logic to trim spaces if I really care about it)
     //Strucutre in the backend mimics what we have in the frontend so sending data back and fourth is clear
@@ -49,14 +45,6 @@ class BodyFeild extends React.Component {
           codeText: data.codeText
         })
       );
-
-    // keeping this for now just to be safe
-    // this.setState({
-    //   generalText: generalText,
-    //   projectText: projectText,
-    //   codeText: codeText
-    // });
-
 
     //this is the button that was clicked
     console.log(event.target.name)
