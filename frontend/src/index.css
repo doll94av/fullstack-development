@@ -8,17 +8,19 @@ body {
   width: 100%;
 }
 
+.button {
+  color: black;
+
+}
 #root {
   width: 100%;
-
-
 }
 
 #bodyFeild {
   border-radius: 25px;
   margin-top: 3%;
-  margin-left: 25%;
-  margin-right: 25%;
+  margin-left: 15%;
+  margin-right: 15%;
   border-style: solid;
   background-color: rgba(255, 255, 255);
   min-width: 500px;
@@ -33,10 +35,11 @@ body {
 
 #banner {
   text-align: center;
+  font-family: Bookman;
+
 }
 
 #generalDescription {
-  border: solid;
   padding-left: 5px;
   padding-right: 5px;
 }

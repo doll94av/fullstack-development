@@ -3,15 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 
+
 class Buttons extends React.Component {
   constructor(props) {
     super(props)
     this.handleClick = this.handleClick.bind(this);
   }
+
+  //will need to test but I do believe that this will be deprecated and done a seperate way
   handleClick(i) {
     //change both <bodyFeild or another div added later> as well as the PageDescription and Project descriptoon
-    console.log('triggered');
-
 
   }
   render() {
@@ -23,7 +24,6 @@ class Buttons extends React.Component {
 
 
 class BodyFeild extends React.Component {
-
   //default text
   state = {
     generalText: 'Welcome to my portfolio! I put together this small site to demonstrate some of my knowledge as well as grow my skillset. This site is built using MERN as a stack, when I started this project I had little frontend and backend knowlege. Spending time here has helped teach me how different components link together as well as how to manage a fullstack project from start to finish (though this is ever growing). Please feel free to check it out, any advice or comments are always welcome! All of my contact details will be available on the contact page.',
@@ -33,21 +33,18 @@ class BodyFeild extends React.Component {
 
   //what we want to do is dynamically grab the relevant information such as grabbing information from the mongo backend!!!
   grabNewText(event) {
-    var generalText = ''
-    var projectText = ''
-    var codeText = ''
 
-    //test logic
     //currently this works with no spaces (might want to add logic to trim spaces if I really care about it)
-
+    //Strucutre in the backend mimics what we have in the frontend so sending data back and fourth is clear
     fetch('http://localhost:3001/'+ event.target.name)
       .then(response => response.json())
-      .then(data => console.log(data));
-    this.setState({
-      generalText: generalText,
-      projectText: projectText,
-      codeText: codeText
-    });
+      .then(data =>
+        this.setState({
+          generalText: <h1>{data.generalText}</h1>,
+          projectText: data.projectText,
+          codeText: data.codeText
+        })
+      );
 
     //this is the button that was clicked
     console.log(event.target.name)
@@ -56,7 +53,7 @@ class BodyFeild extends React.Component {
 
   render() {
 
-    var buttonList = ["Home", "Contact", "WebScraper", "MongoBackend"];
+    var buttonList = ["Home", "Contact", "WebScraper", "MongoBackend", "Blog"];
     for(var i = 0; i < buttonList.length; i++) {
       buttonList[i] = <Buttons name={buttonList[i]} buttonClick={this.grabNewText.bind(this)} />
     };
