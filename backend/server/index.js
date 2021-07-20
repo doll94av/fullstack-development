@@ -4,6 +4,10 @@ const PORT = process.env.PORT || 3001;
 var database = require('./mongo.js');
 const app = express();
 
+//testing
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017";
+
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
@@ -19,12 +23,27 @@ async function waitForResults(){
 
 app.get("/home", (req, res) => {
   res.set('Access-Control-Allow-Origin', allowControlOrigin);
-  console.log(waitForResults());
-  res.json({
-    generalText: "we clicked the home button and we got this info from the backend",
-    projectText: "On the home page we will probably just talk about work experience and the project",
-    codeText: "Home page this may be blank unless I can find something relevant to fill the space with"
+  MongoClient.connect(url, function(err, client) {
+     if (err) throw err;
+     db = client.db()
+     var query = { page: "home" };
+     var result = db.collection("inventory").find(query).toArray(function(err, result) {
+       if (err) throw err;
+       client.close();
+       var test = result[0]
+       console.log(test.page)
+       res.json({
+         generalText: result[0].generalText,
+         projectText: result[0].projectText,
+         codeText: result[0].codeText
+       });
+     });
   });
+  // res.json({
+  //   generalText: "we clicked the home button and we got this info from the backend",
+  //   projectText: "On the home page we will probably just talk about work experience and the project",
+  //   codeText: "Home page this may be blank unless I can find something relevant to fill the space with"
+  // });
 });
 
 app.get("/contact", (req, res) => {
