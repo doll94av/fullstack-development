@@ -4,6 +4,7 @@ import './index.css';
 
 
 
+//define button class -- set the name and onclick that we inherit from the bodyFeild class.
 class Buttons extends React.Component {
   constructor(props) {
     super(props)
@@ -23,6 +24,7 @@ class Buttons extends React.Component {
 }
 
 
+//most of the main work is done here, construct the button nav bar as well as create the text feilds that are filled using the backend
 class BodyFeild extends React.Component {
   //default text
   state = {
@@ -53,6 +55,8 @@ class BodyFeild extends React.Component {
 
   render() {
 
+    //if there is a need to add a new button, all that should be needed is to add it to this list and create a get endpoint in the node Backend
+    //essentially we cycle through the array and add the name property and assign it the bodyFeild getNewText for its onClick
     var buttonList = ["Home", "Contact", "WebScraper", "MongoBackend", "Blog"];
     for(var i = 0; i < buttonList.length; i++) {
       buttonList[i] = <Buttons name={buttonList[i]} buttonClick={this.grabNewText.bind(this)} />
@@ -61,6 +65,9 @@ class BodyFeild extends React.Component {
      button
     );
     return (
+
+      //simply place relevant divs, within each div set the relevant state to place text
+      //the state is changed within the grabNewText OnClick, all data is pulled from the mongoDB that backs this
       <div id="bodyFeild">
         <h1 id="banner">Welcome to my Portfolio</h1>
         <div id="navBar">

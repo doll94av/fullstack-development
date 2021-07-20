@@ -1,4 +1,5 @@
 //code in the relevant database information
+//This file at the moment is not needed -- eventually I think moving this out to another file is better but for now im keeping it in the index.js
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017";
 
