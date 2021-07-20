@@ -9,15 +9,17 @@ app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
 
-app.get("/", (req, res) => {
+async function waitForResults(){
+  var finalresults = await database.test("home");
+  console.log(finalresults)
+  return finalresults;
 
-});
+}
+
 
 app.get("/home", (req, res) => {
   res.set('Access-Control-Allow-Origin', allowControlOrigin);
-
-  const result = database.test();
-  console.log(database.testresult());
+  console.log(waitForResults());
   res.json({
     generalText: "we clicked the home button and we got this info from the backend",
     projectText: "On the home page we will probably just talk about work experience and the project",

@@ -4,27 +4,21 @@ var url = "mongodb://localhost:27017";
 
 var resulttest = '';
 function test (queryPage){
-  MongoClient.connect(url, function(err, client) {
-    if (err) throw err;
-    db = client.db()
-    var query = { page: "home" };
-    db.collection("inventory").find(query).toArray(function(err, result) {
-      if (err) throw err;
-      client.close();
-      resulttest = result;
-      return(result)
-
-});
-});
+  return new Promise(function(resolve, reject){
+    MongoClient.connect(url, function(err, client) {
+       if (err) throw err;
+       db = client.db()
+       var query = { page: queryPage };
+       var result = db.collection("inventory").find(query).toArray(function(err, result) {
+         if (err) throw err;
+         client.close();
+         resolve(result)
+       });
+    });
+  });
 }
-
-function testresult() {
-  return resulttest
-}
-
 
 
 module.exports = {
   test,
-  testresult
 };
