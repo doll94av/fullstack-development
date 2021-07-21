@@ -18,7 +18,7 @@ class Buttons extends React.Component {
   }
   render() {
     return (
-      <button name={this.props.name} onClick={this.props.buttonClick}>{this.props.name}</button>
+      <a href="#" name={this.props.name} onClick={this.props.buttonClick} class="styledButton">{this.props.name}</a>
     );
   }
 }
@@ -59,7 +59,7 @@ class BodyFeild extends React.Component {
     //essentially we cycle through the array and add the name property and assign it the bodyFeild getNewText for its onClick
     var buttonList = ["Home", "Contact", "WebScraper", "MongoBackend", "Blog"];
     for(var i = 0; i < buttonList.length; i++) {
-      buttonList[i] = <Buttons name={buttonList[i]} buttonClick={this.grabNewText.bind(this)} />
+      buttonList[i] = <Buttons name={buttonList[i]} buttonClick={this.grabNewText.bind(this)} class="styledButton"/>
     };
     const listedButtons = buttonList.map((button) =>
      button
@@ -80,7 +80,7 @@ class BodyFeild extends React.Component {
           {this.state.projectText}
         </div>
         <div id="codeSnippet">
-          {this.state.codeText}
+          <pre>{this.state.codeText}</pre>
         </div>
 
       </div>
