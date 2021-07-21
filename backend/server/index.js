@@ -19,6 +19,7 @@ app.listen(PORT, () => {
 //within each 'get' set the appropriate access control header - this is a variable at the top of the script -
 // from there construct the mongo client and fill in query informationm, after recieving the response close the connection and grab and respond with the relevant data
 app.get("/home", (req, res) => {
+  console.log("Request to the home endpoint");
   res.set('Access-Control-Allow-Origin', allowControlOrigin);
   MongoClient.connect(url, function(err, client) {
      if (err) throw err;
@@ -38,38 +39,85 @@ app.get("/home", (req, res) => {
 });
 
 app.get("/contact", (req, res) => {
+  console.log("Request to the contact endpoint");
   res.set('Access-Control-Allow-Origin', allowControlOrigin);
-  res.json({
-    generalText: "Thank you for your interest, I am looking forward to hearing from you!",
-    projectText: "<linkedIn, email>",
-    codeText: "probs empty"
+  MongoClient.connect(url, function(err, client) {
+     if (err) throw err;
+     db = client.db()
+     var query = { page: "contact" };
+     var result = db.collection(databaseInventory).find(query).toArray(function(err, result) {
+       if (err) throw err;
+       client.close();
+       var test = result[0]
+       res.json({
+         generalText: result[0].generalText,
+         projectText: result[0].projectText,
+         codeText: result[0].codeText
+       });
+     });
   });
+
 });
 
 app.get("/webscraper", (req, res) => {
+  console.log("Request to the webscraper endpoint");
   res.set('Access-Control-Allow-Origin', allowControlOrigin);
-  res.json({
-    generalText: "Webscraper",
-    projectText: "I used go and a package called 'colly' to create a simple webscraper. This takes in some reddit link and will scrap the first 10 unique images that it sees. Once it has scraped the relevant images it will store the contents into a .zip and offer it for download!",
-    codeText: "Probably a few snippets regarding what I did"
+  MongoClient.connect(url, function(err, client) {
+     if (err) throw err;
+     db = client.db()
+     var query = { page: "webscraper" };
+     var result = db.collection(databaseInventory).find(query).toArray(function(err, result) {
+       if (err) throw err;
+       client.close();
+       var test = result[0]
+       res.json({
+         generalText: result[0].generalText,
+         projectText: result[0].projectText,
+         codeText: result[0].codeText
+       });
+     });
   });
+
 });
 
 app.get("/mongobackend", (req, res) => {
+  console.log("Request to the nodebackend endpoint");
   res.set('Access-Control-Allow-Origin', allowControlOrigin);
-  res.json({
-    generalText: "we clicked the mongobackend button and we got this info from the backend",
-    projectText: "Backend code / database code / whatever",
-    codeText: "more code that does not exist yet"
+  MongoClient.connect(url, function(err, client) {
+     if (err) throw err;
+     db = client.db()
+     var query = { page: "mongobackend" };
+     var result = db.collection(databaseInventory).find(query).toArray(function(err, result) {
+       if (err) throw err;
+       client.close();
+       var test = result[0]
+       res.json({
+         generalText: result[0].generalText,
+         projectText: result[0].projectText,
+         codeText: result[0].codeText
+       });
+     });
   });
+
 });
 
 app.get("/blog", (req, res) => {
+  console.log("Request to the blog endpoint");
   res.set('Access-Control-Allow-Origin', allowControlOrigin);
-  res.json({
-    generalText: "we clicked the mongobackend button and we got this info from the backend",
-    projectText: "Backend code / database code / whatever",
-    codeText: "Days worked on this project: 7/16, 7/17, 7/18"
+  MongoClient.connect(url, function(err, client) {
+     if (err) throw err;
+     db = client.db()
+     var query = { page: "blog" };
+     var result = db.collection(databaseInventory).find(query).toArray(function(err, result) {
+       if (err) throw err;
+       client.close();
+       var test = result[0]
+       res.json({
+         generalText: result[0].generalText,
+         projectText: result[0].projectText,
+         codeText: result[0].codeText
+       });
+     });
   });
 });
 
@@ -77,7 +125,7 @@ app.get("/blog", (req, res) => {
 //super secret POST endpoint for adding information to the updatedatabase
 //check if the queryparameters are undefined and if not POST to the database
 app.post("/updatedatabase", (req, res) => {
-
+  console.log("POST to the database");
   res.set('Access-Control-Allow-Origin', allowControlOrigin);
 
   if(req.query.page == undefined || req.query.generalText == undefined || undefined || req.query.projectText == undefined || req.query.codeText == undefined)
@@ -97,11 +145,9 @@ app.post("/updatedatabase", (req, res) => {
       var recordCheck = db.collection(databaseInventory);
       recordCheck.find({page: req.query.page}, {$exists: true}).toArray(function(err, doc) //find if a value exists
       {
-        console.log(doc)
-        console.log(doc[0])
+
         if(doc[0] != undefined) //if it does
         {
-            console.log(doc); // print out what it sends back
             client.close();
             res.send("send it back");
         }
