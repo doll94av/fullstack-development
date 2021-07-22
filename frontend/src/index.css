@@ -79,7 +79,21 @@ body {
   padding-left: 10px;
   padding-bottom: 1px;
   padding-top: 1px;
-  min-height: 100px;
+  background-color: rgb(238, 240, 240);
+  font-size: 12px;
+  font-family: sans-serif;
+}
+
+#WebScraper {
+  border: solid;
+  border-color: grey;
+  border-width: 1px;
+  margin-bottom: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 1px;
+  padding-top: 1px;
   background-color: rgb(238, 240, 240);
   font-size: 12px;
   font-family: sans-serif;

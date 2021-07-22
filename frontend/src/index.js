@@ -30,7 +30,8 @@ class BodyFeild extends React.Component {
   state = {
     generalText: 'Welcome to my portfolio! I put together this small site to demonstrate some of my knowledge as well as grow my skillset. This site is built using MERN as a stack, when I started this project I had little frontend and backend knowlege. Spending time here has helped teach me how different components link together as well as how to manage a fullstack project from start to finish (though this is ever growing). Please feel free to check it out, any advice or comments are always welcome! All of my contact details will be available on the contact page.',
     projectText: '',
-    codeText: ''
+    codeText: '',
+    additonalText: ''
   }
 
   //what we want to do is dynamically grab the relevant information such as grabbing information from the mongo backend!!!
@@ -44,8 +45,10 @@ class BodyFeild extends React.Component {
         this.setState({
           generalText: <h1>{data.generalText}</h1>,
           projectText: data.projectText,
-          codeText: data.codeText
-        })
+          codeText: data.codeText,
+          additonalText: data.additonalText,
+          page: event.target.name
+        }),
       );
 
     //this is the button that was clicked
@@ -60,7 +63,7 @@ class BodyFeild extends React.Component {
     var buttonList = ["Home", "Contact", "WebScraper", "MongoBackend", "Blog"];
     for(var i = 0; i < buttonList.length; i++) {
       buttonList[i] = <Buttons name={buttonList[i]} buttonClick={this.grabNewText.bind(this)} class="styledButton"/>
-    };
+    }
     const listedButtons = buttonList.map((button) =>
      button
     );
@@ -79,7 +82,10 @@ class BodyFeild extends React.Component {
         <div id="projectDescription">
           {this.state.projectText}
         </div>
-        <div id="codeSnippet">
+        <div id="additonalText">
+          {this.state.additonalText}
+        </div>
+        <div id={this.state.page}>
           <pre>{this.state.codeText}</pre>
         </div>
 

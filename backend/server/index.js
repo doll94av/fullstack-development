@@ -32,7 +32,8 @@ app.get("/home", (req, res) => {
        res.json({
          generalText: result[0].generalText,
          projectText: result[0].projectText,
-         codeText: result[0].codeText
+         codeText: result[0].codeText,
+         additonalText: result[0].additonalText,
        });
      });
   });
@@ -116,6 +117,7 @@ app.get("/blog", (req, res) => {
          generalText: result[0].generalText,
          projectText: result[0].projectText,
          codeText: result[0].codeText
+
        });
      });
   });
@@ -128,14 +130,15 @@ app.post("/updatedatabase", (req, res) => {
   console.log("POST to the database");
   res.set('Access-Control-Allow-Origin', allowControlOrigin);
 
-  if(req.query.page == undefined || req.query.generalText == undefined || undefined || req.query.projectText == undefined || req.query.codeText == undefined)
+  if(req.query.page == undefined || req.query.generalText == undefined || undefined || req.query.projectText == undefined || req.query.codeText == undefined || req.query.additonalText == undefined)
     res.send("Did not post to db, please check query parameters as one returned undefined and try again")
   else {
   var postObj = {
     page: req.query.page,
     generalText: req.query.generalText,
     projectText: req.query.projectText,
-    codeText: req.query.codeText
+    codeText: req.query.codeText,
+    additonalText: req.query.additonalText,
   }
 
   //check if the page entry exists in the colleciton and if it does send it back without posting
