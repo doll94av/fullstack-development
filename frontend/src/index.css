@@ -69,6 +69,16 @@ body {
   font-family: serif;
 }
 
+#projectDescription {
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  min-height: 100px;
+}
+
+/**
+these all reference the same text block, essentially we will style the codeSnippet block based on the button that is clicked
+**/
 #codeSnippet {
   border: solid;
   border-color: grey;
@@ -99,10 +109,29 @@ body {
   font-family: sans-serif;
 }
 
-
-#projectDescription {
-  margin-top: 10px;
+#Mongo {
+  border: solid;
+  border-color: grey;
+  border-width: 1px;
+  margin-bottom: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
   padding-left: 10px;
-  padding-right: 10px;
-  min-height: 100px;
+  padding-bottom: 1px;
+  padding-top: 1px;
+  background-color: rgb(238, 240, 240);
+  font-size: 12px;
+  font-family: sans-serif;
+}
+
+#home {
+
+}
+
+#blog {
+
+}
+
+#contact {
+
 }
