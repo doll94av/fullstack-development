@@ -37,6 +37,9 @@ body {
 	top:1px;
 }
 
+#additonalText {
+
+}
 
 #bodyFeild {
   border-radius: 25px;
@@ -73,7 +76,12 @@ body {
   margin-top: 10px;
   padding-left: 10px;
   padding-right: 10px;
-  min-height: 100px;
+}
+
+#additonalText {
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 /**
@@ -124,14 +132,20 @@ these all reference the same text block, essentially we will style the codeSnipp
   font-family: sans-serif;
 }
 
-#home {
-
+#Home {
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
-#blog {
-
+#Blog {
+  padding-left: 10px;
+  padding-right: 5px;
+  font-size: 20px;
+  font-family: serif;
 }
 
-#contact {
-
+#Contact {
+  padding-left: 10px;
+  padding-right: 5px;
+  font-family: serif;
 }

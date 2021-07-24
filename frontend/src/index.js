@@ -18,7 +18,7 @@ class Buttons extends React.Component {
   }
   render() {
     return (
-      <a href="#" name={this.props.name} onClick={this.props.buttonClick} class="styledButton">{this.props.name}</a>
+      <a href="/#" name={this.props.name} onClick={this.props.buttonClick} class="styledButton">{this.props.name}</a>
     );
   }
 }
@@ -39,7 +39,7 @@ class BodyFeild extends React.Component {
 
     //currently this works with no spaces (might want to add logic to trim spaces if I really care about it)
     //Strucutre in the backend mimics what we have in the frontend so sending data back and fourth is clear
-    fetch('http://localhost:3001/'+ event.target.name)
+    fetch('http://35.172.216.189:32392/'+ event.target.name)
       .then(response => response.json())
       .then(data =>
         this.setState({
@@ -60,7 +60,7 @@ class BodyFeild extends React.Component {
 
     //if there is a need to add a new button, all that should be needed is to add it to this list and create a get endpoint in the node Backend
     //essentially we cycle through the array and add the name property and assign it the bodyFeild getNewText for its onClick
-    var buttonList = ["Home", "Contact", "WebScraper", "MongoBackend", "Blog"];
+    var buttonList = ["Home", "Contact", "WebScraper", "MongoBackend", "Resume"];
     for(var i = 0; i < buttonList.length; i++) {
       buttonList[i] = <Buttons name={buttonList[i]} buttonClick={this.grabNewText.bind(this)} class="styledButton"/>
     }

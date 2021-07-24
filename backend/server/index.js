@@ -1,5 +1,5 @@
 const express = require("express");
-const allowControlOrigin = "http://localhost:3000"
+const allowControlOrigin = "*"
 const PORT = process.env.PORT || 3001;
 var database = require('./mongo.js');
 const app = express();
@@ -102,13 +102,13 @@ app.get("/mongobackend", (req, res) => {
 
 });
 
-app.get("/blog", (req, res) => {
-  console.log("Request to the blog endpoint");
+app.get("/resume", (req, res) => {
+  console.log("Request to the resume endpoint");
   res.set('Access-Control-Allow-Origin', allowControlOrigin);
   MongoClient.connect(url, function(err, client) {
      if (err) throw err;
      db = client.db()
-     var query = { page: "blog" };
+     var query = { page: "resume" };
      var result = db.collection(databaseInventory).find(query).toArray(function(err, result) {
        if (err) throw err;
        client.close();
