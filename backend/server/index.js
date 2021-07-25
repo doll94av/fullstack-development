@@ -7,7 +7,7 @@ const databaseInventory = 'inventory';
 //setup connection for mongoDB
 //eventually change the URL to be an env var or something a bit more generic
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017";
+var url = "mongodb://admin:password@database.default.svc.cluster.local:27017";
 
 
 app.listen(PORT, () => {
@@ -148,7 +148,7 @@ app.post("/updatedatabase", (req, res) => {
       var recordCheck = db.collection(databaseInventory);
       recordCheck.find({page: req.query.page}, {$exists: true}).toArray(function(err, doc) //find if a value exists
       {
-
+        console.log(doc)
         if(doc[0] != undefined) //if it does
         {
             client.close();
