@@ -1,11 +1,13 @@
 html {
   background-color: rgba(205, 226, 248, 0.3);
-
+  background-image: url("background.jpg");
+  background-size: 100%;
 }
 
 body {
   margin: 20px;
   width: 100%;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 .button {
@@ -39,37 +41,41 @@ body {
 
 #additonalText {
 
-}
-
-#bodyFeild {
-  border-radius: 25px;
-  margin-top: 3%;
-  margin-left: 15%;
-  margin-right: 15%;
-  border-style: solid;
-  background-color: rgba(255, 255, 255);
-  min-width: 500px;
-}
-
-#navBar {
-  border-bottom: solid rgba(0, 0, 0, .2);
-  border-radius: 1px;
-  text-align: center;
-  background-color: #7892c2;
 
 }
 
 #banner {
   text-align: center;
-  font-family: Bookman;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+#bodyFeild {
+  border-radius: 25px;
+  margin-top: 10%;
+  margin-left: 15%;
+  margin-right: 15%;
+  border-style: solid;
+  background-color: rgb(232, 237, 241);
+  min-width: 500px;
+  min-height: 500px;
+}
+
+#navBar {
+  border-bottom: solid rgba(0, 0, 0, .2);
+  border-radius: 21px 21px 0px 1px;
+
+  text-align: center;
+  background-color: #7892c2;
 
 }
+
+
 
 #generalDescription {
   padding-left: 10px;
   padding-right: 5px;
   font-size: 20px;
-  font-family: serif;
+  text-align: center;
 }
 
 #projectDescription {

@@ -7,8 +7,13 @@ const databaseInventory = 'inventory';
 //setup connection for mongoDB
 //eventually change the URL to be an env var or something a bit more generic
 var MongoClient = require('mongodb').MongoClient;
+
+//kubernetes cluster connectionstring
 var url = "mongodb://admin:password@database.default.svc.cluster.local:27017";
 
+
+//localhost connectionstring
+//var url = "mongodb://localhost:27017";
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
@@ -165,4 +170,20 @@ app.post("/updatedatabase", (req, res) => {
     });
   });
 }
+});
+
+
+
+//delete an entry based on the Page
+app.delete("/removeData", (req, res) => {
+  res.set('Access-Control-Allow-Origin', allowControlOrigin);
+  MongoClient.connect(url, function(err, db){
+    if (err) throw err;
+    var query = {page: req.query.page}
+    db.collection("inventory").remove(query, function(err, obj) {
+      if (err) throw err;
+      console.log(obj.result.n + " removed from db");
+      db.close();
+    });
+  });
 });

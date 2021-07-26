@@ -28,10 +28,10 @@ class Buttons extends React.Component {
 class BodyFeild extends React.Component {
   //default text
   state = {
-    generalText: 'Welcome to my portfolio! I put together this small site to demonstrate some of my knowledge as well as grow my skillset. This site is built using MERN as a stack, when I started this project I had little frontend and backend knowlege. Spending time here has helped teach me how different components link together as well as how to manage a fullstack project from start to finish (though this is ever growing). Please feel free to check it out, any advice or comments are always welcome! All of my contact details will be available on the contact page.',
-    projectText: '',
+    generalText: 'Welcome!',
+    projectText: 'Welcome to my portfolio! Thank you for stopping by to check it out. This is an ever evolving website as I dive into the (MERN) stack. I initally started with only a basic understanding of web development but have slowly been building my knowledge based as I have worked on this project.',
     codeText: '',
-    additonalText: ''
+    additonalText: 'take your shoes off and stay awhile :D'
   }
 
   //what we want to do is dynamically grab the relevant information such as grabbing information from the mongo backend!!!
@@ -72,7 +72,6 @@ class BodyFeild extends React.Component {
       //simply place relevant divs, within each div set the relevant state to place text
       //the state is changed within the grabNewText OnClick, all data is pulled from the mongoDB that backs this
       <div id="bodyFeild">
-        <h1 id="banner">Welcome to my Portfolio</h1>
         <div id="navBar">
         {listedButtons}
         </div>
