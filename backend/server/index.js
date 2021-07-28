@@ -7,7 +7,7 @@ const databaseInventory = 'inventory';
 //setup connection for mongoDB
 //eventually change the URL to be an env var or something a bit more generic
 var MongoClient = require('mongodb').MongoClient;
-
+var apiToken = "asc39djnao21mndna2";
 //kubernetes cluster connectionstring
 var url = "mongodb://admin:password@database.default.svc.cluster.local:27017";
 
@@ -136,7 +136,7 @@ app.post("/updatedatabase", (req, res) => {
   res.set('Access-Control-Allow-Origin', allowControlOrigin);
 
   if(req.query.page == undefined || req.query.generalText == undefined || undefined || req.query.projectText == undefined || req.query.codeText == undefined || req.query.additonalText == undefined)
-    res.send("Did not post to db, please check query parameters as one returned undefined and try again")
+    res.send("Did not post to db, please check query parameters as one returned undefined and try again");
   else {
   var postObj = {
     page: req.query.page,
@@ -177,13 +177,21 @@ app.post("/updatedatabase", (req, res) => {
 //delete an entry based on the Page
 app.delete("/removeData", (req, res) => {
   res.set('Access-Control-Allow-Origin', allowControlOrigin);
-  MongoClient.connect(url, function(err, db){
+  if(req.headers.authorization == "test") {
+  MongoClient.connect(url, function(err, client){
+    db = client.db();
     if (err) throw err;
     var query = {page: req.query.page}
-    db.collection("inventory").remove(query, function(err, obj) {
+    db.collection(databaseInventory).deleteOne(query, function(err, obj) {
       if (err) throw err;
-      console.log(obj.result.n + " removed from db");
-      db.close();
+      console.log(req.query.page + " removed from db");
+    client.close();
+    res.send("Removed from the database");
     });
   });
+ }
+ else {
+   console.log("bad authorizaiton")
+   res.status(403).json({ error: 'No credentials sent!' });
+ }
 });
