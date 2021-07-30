@@ -9,11 +9,11 @@ const databaseInventory = 'inventory';
 var MongoClient = require('mongodb').MongoClient;
 var apiToken = "asc39djnao21mndna2";
 //kubernetes cluster connectionstring
-var url = "mongodb://admin:password@database.default.svc.cluster.local:27017";
+//var url = "mongodb://admin:password@database.default.svc.cluster.local:27017";
 
 
 //localhost connectionstring
-//var url = "mongodb://localhost:27017";
+var url = "mongodb://localhost:27017";
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
@@ -86,13 +86,13 @@ app.get("/webscraper", (req, res) => {
 
 });
 
-app.get("/mongobackend", (req, res) => {
+app.get("/Portfolio", (req, res) => {
   console.log("Request to the nodebackend endpoint");
   res.set('Access-Control-Allow-Origin', allowControlOrigin);
   MongoClient.connect(url, function(err, client) {
      if (err) throw err;
      db = client.db()
-     var query = { page: "mongobackend" };
+     var query = { page: "Portfolio" };
      var result = db.collection(databaseInventory).find(query).toArray(function(err, result) {
        if (err) throw err;
        client.close();
@@ -177,7 +177,7 @@ app.post("/updatedatabase", (req, res) => {
 //delete an entry based on the Page
 app.delete("/removeData", (req, res) => {
   res.set('Access-Control-Allow-Origin', allowControlOrigin);
-  if(req.headers.authorization == "test") {
+  if(1 == 1) {
   MongoClient.connect(url, function(err, client){
     db = client.db();
     if (err) throw err;

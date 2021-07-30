@@ -1,7 +1,10 @@
 html {
-  background-color: rgba(205, 226, 248, 0.3);
   background-image: url("background.jpg");
   background-size: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
 }
 
 body {
@@ -124,7 +127,7 @@ these all reference the same text block, essentially we will style the codeSnipp
   font-family: sans-serif;
 }
 
-#Mongo {
+#Portfolio {
   border: solid;
   border-color: grey;
   border-width: 1px;
@@ -142,12 +145,13 @@ these all reference the same text block, essentially we will style the codeSnipp
 #Home {
   padding-left: 10px;
   padding-right: 10px;
+  margin-left: 10px;
 }
 
-#Blog {
+#Resume {
   padding-left: 10px;
   padding-right: 5px;
-  font-size: 20px;
+  font-size: 12px;
   font-family: serif;
 }
 

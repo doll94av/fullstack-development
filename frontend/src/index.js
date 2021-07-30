@@ -28,7 +28,7 @@ class Buttons extends React.Component {
 class BodyFeild extends React.Component {
   //default text
   state = {
-    generalText: 'Welcome!',
+    generalText: <h1>Welcome!</h1>,
     projectText: 'Welcome to my portfolio! Thank you for stopping by to check it out. This is an ever evolving website as I dive into the (MERN) stack. I initally started with only a basic understanding of web development but have slowly been building my knowledge based as I have worked on this project.',
     codeText: '',
     additonalText: 'take your shoes off and stay awhile :D'
@@ -39,8 +39,8 @@ class BodyFeild extends React.Component {
 
     //currently this works with no spaces (might want to add logic to trim spaces if I really care about it)
     //Strucutre in the backend mimics what we have in the frontend so sending data back and fourth is clear
-    //fetch('http://localhost:3001/'+ event.target.name)
-    fetch('http://35.172.216.189:32392/'+ event.target.name)
+    fetch('http://localhost:3001/'+ event.target.name)
+    //fetch('http://35.172.216.189:32392/'+ event.target.name)
       .then(response => response.json())
       .then(data =>
         this.setState({
@@ -61,7 +61,7 @@ class BodyFeild extends React.Component {
 
     //if there is a need to add a new button, all that should be needed is to add it to this list and create a get endpoint in the node Backend
     //essentially we cycle through the array and add the name property and assign it the bodyFeild getNewText for its onClick
-    var buttonList = ["Home", "Contact", "WebScraper", "MongoBackend", "Resume"];
+    var buttonList = ["Home", "Contact", "WebScraper", "Portfolio", "Resume"];
     for(var i = 0; i < buttonList.length; i++) {
       buttonList[i] = <Buttons name={buttonList[i]} buttonClick={this.grabNewText.bind(this)} class="styledButton"/>
     }
