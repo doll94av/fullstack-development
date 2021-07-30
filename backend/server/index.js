@@ -9,11 +9,11 @@ const databaseInventory = 'inventory';
 var MongoClient = require('mongodb').MongoClient;
 var apiToken = "asc39djnao21mndna2";
 //kubernetes cluster connectionstring
-//var url = "mongodb://admin:password@database.default.svc.cluster.local:27017";
+var url = "mongodb://admin:password@database.default.svc.cluster.local:27017";
 
 
 //localhost connectionstring
-var url = "mongodb://localhost:27017";
+//var url = "mongodb://localhost:27017";
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
