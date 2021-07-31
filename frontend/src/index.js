@@ -82,11 +82,11 @@ class BodyFeild extends React.Component {
         <div id="projectDescription">
           {this.state.projectText}
         </div>
-        <div id="additonalText">
-          {this.state.additonalText}
-        </div>
         <div id={this.state.page}>
           <pre>{this.state.codeText}</pre>
+        </div>
+        <div id="additonalText">
+          {this.state.additonalText}
         </div>
 
       </div>

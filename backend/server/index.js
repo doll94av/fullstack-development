@@ -76,11 +76,16 @@ app.get("/webscraper", (req, res) => {
        if (err) throw err;
        client.close();
        var test = result[0]
-       res.json({
-         generalText: result[0].generalText,
-         projectText: result[0].projectText,
-         codeText: result[0].codeText
-       });
+       try{
+         res.json({
+           generalText: result[0].generalText,
+           projectText: result[0].projectText,
+           codeText: result[0].codeText,
+           additonalText: result[0].additonalText
+         });
+       } catch (error) {
+         console.error(error)
+       }
      });
   });
 
