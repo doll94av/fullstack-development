@@ -21,6 +21,10 @@ body {
   width: 100%;
 }
 
+
+
+
+
 .styledButton {
   margin-left: 2px;
   margin-right: 2px;
@@ -61,7 +65,7 @@ body {
   border-style: solid;
   background-color: rgb(249, 249, 249);
   min-width: 500px;
-  min-height: 500px;
+  min-height: 300px;
 }
 
 #navBar {
@@ -73,8 +77,55 @@ body {
 
 }
 
+/**
+Home page css
+**/
 
 
+
+#projectDescriptionHome {
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+}
+
+#homeleft {
+  width: auto;
+}
+#homeright {
+  width: 25%;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+}
+
+#portrait {
+  width: 200px;
+  height: auto;
+  border: solid;
+  border-width: 4px;
+  border-radius: 20px;
+  float: right;
+}
+/*
+  end home page CSS
+ */
+
+/*
+Portfolio css
+*/
+
+
+
+/*
+end portfolio CSS
+*>
+
+
+/*
+  possibly going to be deprecated
+ */
 #generalDescription {
   padding-left: 10px;
   padding-right: 5px;
@@ -92,6 +143,7 @@ body {
   margin-top: 10px;
   padding-left: 10px;
   padding-right: 10px;
+  padding-bottom: 15px;
 }
 
 /**
@@ -156,6 +208,7 @@ these all reference the same text block, essentially we will style the codeSnipp
 }
 
 #Contact {
+  margin-left:10%;
   padding-left: 10px;
   padding-right: 5px;
   font-family: serif;
