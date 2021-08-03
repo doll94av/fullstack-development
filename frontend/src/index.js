@@ -61,11 +61,11 @@ constructor(props) {
         <div id="projectDescriptionHome">
           <div id="portfolioBody">
           <p>I set off to learn how a full stack application is built and developed. I wanted to build something of my own that would give me confidence in my knowledge of how applications work as well as learning more about how tools like GitHub can be used to control how my app is versioned and built. When I started working on this project I had essentially no knowledge of JavaScript or how to connect apps from frontend to database. This project most likely will be ever evolving as I learn new technologies and improve the general layout and style of this website along with adding new projects as I bring them to competition. I also have a passion for Kubernetes and want to become a defacto expert in it, I started by getting Kubernetes Administrator certified and I am using a single node cluster to run this application. By doing this, I learned how different components can reach out to each other in a kube-manner and how microservices and applications can be efficiently ran in the cloud/containerized. If you have any questions or want to get ahold of me for an opportunity please check out my contact page and reach out however you prefer!</p>
-          <p>On the right I have included my Dockerfile as an example, both the frontend and backend use a similar layout. The foundation of this project started with the goal of being able to implement a fullstack project
+          <p>On the right I have included my Dockerfile as an example, both the frontend and backend use a similar layout. The foundation of this project started with the goal of being able to implement a fullstack project it only made sense to start with the smallest building block I can with a Dockerfile. Simply put, this Dockerfile gathers the latest image from node, copies both of my package scripts for startup, installs NPM then starts my application. A minor improvement I could make is actually producing a production level application with npm build over npm start, but for this project a quicker startup time is helpful for the constant changing in the source code. I have pushed this file to Dockerhub and use this as a base to my Kubernetes deployment definition. Both the frontend and backend run in single pod deployments, which is not optimal for high availability but it keeps the cost down for personal projects 😊. From there I exposed both deployments publicly with the frontend being the IP/pod combo that you are accessing this website at. Overall, this portion of the project provided the bit of hands on from start to finish Kubernetes experience that I felt that I needed.
           </p>
           </div>
           <div id="portfolioRight">
-            <a href="https://github.com/doll94av/fullstack-development/blob/main/frontend/Dockerfile" class="dockerLink">Dockerfile</a>
+            <a href="https://hub.docker.com/repository/docker/doll1av/frontend/general" class="dockerLink">Dockerfile</a>
             <div id="portfolioYaml">
             <p>FROM node:latest</p>
             <p>WORKDIR /app</p>
@@ -75,10 +75,32 @@ constructor(props) {
             <p>EXPOSE 3000</p>
             <p>CMD ["npm", "start"]</p>
           </div>
-          </div>
+          <a href="https://hub.docker.com/repository/docker/doll1av/frontend/general" class="dockerLink">Pod Yaml</a>
+          <div id="portfolioYaml">
+          apiVersion: v1
+          kind: Pod
+          metadata:
+            creationTimestamp: null
+            labels:
+              run: react-frontend
+            name: react-frontend
+          spec:
+            containers:
+            - image: doll1av/frontend:latest
+              name: react-frontend
+              resources: {}
+            dnsPolicy: ClusterFirst
+            restartPolicy: Always
+          status: {}
+        </div>
+        <div id ="test">
+          <a href="https://github.com/doll94av/fullstack-development" class="testbutton">Github Repo</a>
+        </div>
+      </div>
+
         </div>
         <div id="additonalText">
-        <a href="https://github.com/doll94av/fullstack-development">Check out this project on GitHub</a>
+
         </div>
       </div>
     );

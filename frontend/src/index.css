@@ -149,6 +149,33 @@ Portfolio css
   min-width: 200px;
 }
 
+.testbutton {
+  text-decoration: none;
+  border-radius: 12px;
+  padding: 2px 12px 2px 12px;
+  text-shadow: 1px;
+
+  border-width: 3px;
+  font-size: 17px;
+  color: white;
+  -webkit-transition: color 1s;
+  -moz-transition:    color 1s;
+  -ms-transition:     color 1s;
+  -o-transition:      color 1s;
+  transition:         color 1s;
+  background-color:rgb(94, 145, 195);
+
+}
+
+.testbutton:hover {
+  color:rgb(218, 247, 215);
+
+}
+
+#test {
+ width:100%;
+ text-align: center;
+}
 /*
 end portfolio CSS
 *>
