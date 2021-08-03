@@ -13,6 +13,13 @@ body {
   font-family: 'Noto Sans', sans-serif;
 }
 
+
+pre {
+
+    white-space: pre-wrap;
+
+}
+
 .button {
   color: black;
 
@@ -46,10 +53,6 @@ body {
 	top:1px;
 }
 
-#additonalText {
-
-
-}
 
 #banner {
   text-align: center;
@@ -76,6 +79,7 @@ body {
   background-color: rgb(94, 145, 195);
 
 }
+
 
 /**
 Home page css
@@ -116,7 +120,34 @@ Home page css
 Portfolio css
 */
 
+#portfolioBody {
+  width: auto;
+}
+#portfolioRight {
+  width: 25%;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+}
 
+.dockerLink {
+  padding-left:75px;
+}
+#portfolioYaml {
+  border: solid;
+  border-color: grey;
+  border-width: 1px;
+  margin-bottom: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 1px;
+  padding-top: 1px;
+  background-color: rgb(238, 240, 240);
+  font-size: 12px;
+  font-family: sans-serif;
+  min-width: 200px;
+}
 
 /*
 end portfolio CSS

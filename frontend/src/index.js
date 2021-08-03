@@ -59,7 +59,23 @@ constructor(props) {
           <h1>Portfolio Project</h1>
         </div>
         <div id="projectDescriptionHome">
-        <p>I set off to learn how a full stack application is built and developed. I wanted to build something of my own that would give me confidence in my knowledge of how applications work as well as learning more about how tools like GitHub can be used to control how my app is versioned and built. When I started working on this project I had essentially no knowledge of JavaScript or how to connect apps from frontend to database. This project most likely will be ever evolving as I learn new technologies and improve the general layout and style of this website along with adding new projects as I bring them to competition. I also have a passion for Kubernetes and want to become a defacto expert in it, I started by getting Kubernetes Administrator certified and I am using a single node cluster to run this application. By doing this, I learned how different components can reach out to each other in a kube-manner and how microservices and applications can be efficiently ran in the cloud/containerized. If you have any questions or want to get ahold of me for an opportunity please check out my contact page and reach out however you prefer!</p>
+          <div id="portfolioBody">
+          <p>I set off to learn how a full stack application is built and developed. I wanted to build something of my own that would give me confidence in my knowledge of how applications work as well as learning more about how tools like GitHub can be used to control how my app is versioned and built. When I started working on this project I had essentially no knowledge of JavaScript or how to connect apps from frontend to database. This project most likely will be ever evolving as I learn new technologies and improve the general layout and style of this website along with adding new projects as I bring them to competition. I also have a passion for Kubernetes and want to become a defacto expert in it, I started by getting Kubernetes Administrator certified and I am using a single node cluster to run this application. By doing this, I learned how different components can reach out to each other in a kube-manner and how microservices and applications can be efficiently ran in the cloud/containerized. If you have any questions or want to get ahold of me for an opportunity please check out my contact page and reach out however you prefer!</p>
+          <p>On the right I have included my Dockerfile as an example, both the frontend and backend use a similar layout. The foundation of this project started with the goal of being able to implement a fullstack project
+          </p>
+          </div>
+          <div id="portfolioRight">
+            <a href="https://github.com/doll94av/fullstack-development/blob/main/frontend/Dockerfile" class="dockerLink">Dockerfile</a>
+            <div id="portfolioYaml">
+            <p>FROM node:latest</p>
+            <p>WORKDIR /app</p>
+            <p>COPY ["package.json", "package-lock.json", "./"]</p>
+            <p>RUN npm install</p>
+            <p>COPY . .</p>
+            <p>EXPOSE 3000</p>
+            <p>CMD ["npm", "start"]</p>
+          </div>
+          </div>
         </div>
         <div id="additonalText">
         <a href="https://github.com/doll94av/fullstack-development">Check out this project on GitHub</a>
@@ -177,7 +193,7 @@ class BodyFeild extends React.Component {
       </div>
       );
     }
-    else return (
+    else  return (
       <div id="bodyFeild">
         <div id="navBar">
         {listedButtons}
