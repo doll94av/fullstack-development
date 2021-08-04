@@ -31,7 +31,7 @@ constructor(props) {
     return (
         <div>
         <div id="generalDescription">
-          <h1>Home</h1>
+          <p class="heading">Home</p>
         </div>
         <div id="projectDescriptionHome">
           <div id="homeleft">
@@ -56,7 +56,7 @@ constructor(props) {
     return (
         <div>
         <div id="generalDescription">
-          <h1>Portfolio Project</h1>
+          <p class="heading">Portfolio Project</p>
         </div>
         <div id="projectDescriptionHome">
           <div id="portfolioBody">
@@ -75,24 +75,6 @@ constructor(props) {
             <p>EXPOSE 3000</p>
             <p>CMD ["npm", "start"]</p>
           </div>
-          <a href="https://hub.docker.com/repository/docker/doll1av/frontend/general" class="dockerLink">Pod Yaml</a>
-          <div id="portfolioYaml">
-          apiVersion: v1
-          kind: Pod
-          metadata:
-            creationTimestamp: null
-            labels:
-              run: react-frontend
-            name: react-frontend
-          spec:
-            containers:
-            - image: doll1av/frontend:latest
-              name: react-frontend
-              resources: {}
-            dnsPolicy: ClusterFirst
-            restartPolicy: Always
-          status: {}
-        </div>
         <div id ="test">
           <a href="https://github.com/doll94av/fullstack-development" class="testbutton">Github Repo</a>
         </div>
@@ -115,7 +97,7 @@ constructor(props) {
     return (
         <div>
         <div id="generalDescription">
-          <h1>Contact Information</h1>
+          <h1 class="heading">Contact Information</h1>
         </div>
         <div id="projectDescription">
         <p>Please feel free to contact me using any of the below:</p>
@@ -133,8 +115,8 @@ constructor(props) {
 class BodyFeild extends React.Component {
   //default text
   state = {
-    generalText: <h1>Welcome!</h1>,
-    projectText: 'Welcome to my portfolio! Thank you for stopping by to check it out. This is an ever evolving website as I dive into the (MERN) stack. I initally started with only a basic understanding of web development but have slowly been building my knowledge based as I have worked on this project.',
+    generalText: <h1 class="heading">Welcome!</h1>,
+    projectText: 'Welcome to my portfolio! Thank you for stopping by to check it out. This is an ever evolving website as I dive into the (MERN) stack. I initally started with only a basic understanding of web development but have slowly been building my knowledge base as I have worked on this project.',
     codeText: '',
     additonalText: 'take your shoes off and stay awhile :D'
   }
@@ -166,7 +148,7 @@ class BodyFeild extends React.Component {
 
     //if there is a need to add a new button, all that should be needed is to add it to this list and create a get endpoint in the node Backend
     //essentially we cycle through the array and add the name property and assign it the bodyFeild getNewText for its onClick
-    var buttonList = ["Home", "Contact", "WebScraper", "Portfolio", "Resume"];
+    var buttonList = ["Home", "Resume", "WebScraper", "Portfolio", "Contact"];
     for(var i = 0; i < buttonList.length; i++) {
       buttonList[i] = <Buttons name={buttonList[i]} buttonClick={this.grabNewText.bind(this)} class="styledButton"/>
     }
