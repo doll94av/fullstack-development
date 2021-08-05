@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import portrait from './photoOfMe.png';
+import resume from './AustinDoll_resume-converted.pdf'
 
 
 //define button class -- set the name and onclick that we inherit from the bodyFeild class.
@@ -48,11 +49,44 @@ constructor(props) {
 }
 
 
+class WebScraper extends React.Component {
+constructor(props) {
+  super(props)
+}
+
+  render() {
+    console.log(this.props.codeText)
+    return (
+        <div>
+        <div id="generalDescription">
+          <p class="heading">WebScraper</p>
+        </div>
+        <div id="projectDescription">
+          <p>Initially I started working on this project to gain a bit more knowledge on how web requests work as well as GO as a language. The first steps I took here was to get it running within the commandline, this started me in a good spot so I could focus on learning the syntax of the language as well as the ins and outs of the package I was using. From there I decided to move it into the web versus running it through the commandline, I then hosted this in (at the time) Pivotal Web Services where I could access this application through the web and download the imaged in a packaged zip file. Overall I learned a bit about how webapps work, and some of the pitfalls of not pre-planning how to handle more than just a single user. </p>
+        </div>
+        <div id={this.props.page}>
+        <pre>
+        {this.props.codeText}
+        </pre>
+        </div>
+        <div id="additonalText">
+          <p>
+          In the code above, I assigned functions to the response and reqeust to keep track of the URLS that I had visited to avoid downloading two of the same image, which also applied to favicons and smaller images. On response I setup a function called 'save' that would store the images locally and print an exit line of 'visited' to show that the image was downloaded and a new URL would be queued to be scrapped for images.
+          </p>
+        </div>
+      </div>
+    );
+  }
+}
+
+
 class Portfolio extends React.Component {
 constructor(props) {
   super(props)
 }
   render() {
+
+
     return (
         <div>
         <div id="generalDescription">
@@ -110,6 +144,18 @@ constructor(props) {
   }
 }
 
+class Resume extends React.Component {
+constructor(props) {
+  super(props)
+}
+  render() {
+    return (
+        <div id="generalDescriptionResume">
+          <embed src={resume} class="importedResume"/>
+        </div>
+    );
+  }
+}
 
 //most of the main work is done here, construct the button nav bar as well as create the text feilds that are filled using the backend
 class BodyFeild extends React.Component {
@@ -197,7 +243,30 @@ class BodyFeild extends React.Component {
       </div>
       );
     }
-    else  return (
+    else if("WebScraper" == this.clickedHome){
+      return (
+      //simply place relevant divs, within each div set the relevant state to place text
+      //the state is changed within the grabNewText OnClick, all data is pulled from the mongoDB that backs this
+      <div id = "bodyFeild">
+        <div id="navBar">
+         {listedButtons}
+        </div>
+        <WebScraper codeText={this.state.codeText} page={this.state.page}/>
+      </div>
+      );
+    }
+    else if("Resume" == this.clickedHome){
+      return (
+      //simply place relevant divs, within each div set the relevant state to place text
+      //the state is changed within the grabNewText OnClick, all data is pulled from the mongoDB that backs this
+      <div id = "bodyFeild">
+        <div id="navBar">
+         {listedButtons}
+        </div>
+        <Resume codeText={this.state.codeText} page={this.state.page}/>
+      </div>
+      );
+    } else return (
       <div id="bodyFeild">
         <div id="navBar">
         {listedButtons}
