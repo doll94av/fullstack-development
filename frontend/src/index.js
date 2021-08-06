@@ -161,7 +161,7 @@ constructor(props) {
 class BodyFeild extends React.Component {
   //default text
   state = {
-    generalText: <h1 class="heading">Welcome!</h1>,
+    generalText: <p class="heading">Welcome!</p>,
     projectText: 'Welcome to my portfolio! Thank you for stopping by to check it out. This is an ever evolving website as I dive into the (MERN) stack. I initally started with only a basic understanding of web development but have slowly been building my knowledge base as I have worked on this project.',
     codeText: '',
     additonalText: 'take your shoes off and stay awhile :D'

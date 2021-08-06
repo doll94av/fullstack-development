@@ -32,7 +32,12 @@ pre {
 
 .heading {
   font-family: 'Cairo', sans-serif;
-  font-size: 30px;
+  font-size: 25px;
+  margin: 0px 0px 0px 0px;
+  width: 100%;
+  background-color: rgb(94, 145, 195);
+  color: white;
+	text-shadow:0px 1px 0px #283966;
 }
 
 .styledButton {
@@ -209,8 +214,6 @@ end portfolio CSS
   possibly going to be deprecated
  */
 #generalDescription {
-  padding-left: 10px;
-  padding-right: 5px;
   font-size: 15px;
   text-align: center;
 }
