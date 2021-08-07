@@ -162,7 +162,7 @@ class BodyFeild extends React.Component {
   //default text
   state = {
     generalText: <p class="heading">Welcome!</p>,
-    projectText: 'Welcome to my portfolio! Thank you for stopping by to check it out. This is an ever evolving website as I dive into the (MERN) stack. I initally started with only a basic understanding of web development but have slowly been building my knowledge base as I have worked on this project.',
+    projectText: 'Welcome to my portfolio! Thank you for stopping by to check it out. This is an ever evolving website as I dive into the (MERN) stack. I initally started with only a basic understanding of web development but have slowly been building my knowledge base as I have worked on this project. I am working on pushing some change every day as well as running this on a small node (ec2 can get expensive) so this site may be up or down depending on if I am actively working on it or if the backend gets evicted due to resource congestion.',
     codeText: '',
     additonalText: 'take your shoes off and stay awhile :D'
   }
