@@ -15,6 +15,8 @@ var url = "mongodb://admin:password@database.default.svc.cluster.local:27017";
 //localhost connectionstring
 //var url = "mongodb://localhost:27017";
 
+
+
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
@@ -29,18 +31,27 @@ app.get("/home", (req, res) => {
   MongoClient.connect(url, function(err, client) {
      if (err) throw err;
      db = client.db()
-     var query = { page: "home" };
-     var result = db.collection(databaseInventory).find(query).toArray(function(err, result) {
+     var query = { "page": "home" };
+
+    db.collection(databaseInventory).find(query).toArray(function(err, result) {
        if (err) throw err;
        client.close();
-       var test = result[0]
-       res.json({
-         generalText: result[0].generalText,
-         projectText: result[0].projectText,
-         codeText: result[0].codeText,
-         additonalText: result[0].additonalText,
-       });
-     });
+       if(result[0] != undefined) {
+         res.json({
+           generalText: result[0].generalText,
+           projectText: result[0].projectText,
+           codeText: result[0].codeText,
+           additonalText: result[0].additonalText
+         });
+       } else {
+            res.json({
+            generalText: "Home",
+            projectText: "There was some issue retrieving information from the database :( ",
+            codeText: "",
+            additonalText: ""
+          });
+        }
+    });
   });
 });
 
@@ -54,15 +65,23 @@ app.get("/contact", (req, res) => {
      var result = db.collection(databaseInventory).find(query).toArray(function(err, result) {
        if (err) throw err;
        client.close();
-       var test = result[0]
-       res.json({
-         generalText: result[0].generalText,
-         projectText: result[0].projectText,
-         codeText: result[0].codeText
-       });
-     });
+       if(result[0] != undefined) {
+         res.json({
+           generalText: result[0].generalText,
+           projectText: result[0].projectText,
+           codeText: result[0].codeText,
+           additonalText: result[0].additonalText
+         });
+       } else {
+         res.json({
+           generalText: "contact",
+           projectText: "There was some issue retrieving information from the database :( ",
+           codeText: "",
+           additonalText: ""
+         });
+       }
+    });
   });
-
 });
 
 app.get("/webscraper", (req, res) => {
@@ -75,20 +94,23 @@ app.get("/webscraper", (req, res) => {
      var result = db.collection(databaseInventory).find(query).toArray(function(err, result) {
        if (err) throw err;
        client.close();
-       var test = result[0]
-       try{
+       if(result[0] != undefined) {
          res.json({
            generalText: result[0].generalText,
            projectText: result[0].projectText,
            codeText: result[0].codeText,
            additonalText: result[0].additonalText
          });
-       } catch (error) {
-         console.error(error)
+      } else {
+          res.json({
+            generalText: "Webscraper",
+            projectText: "There was some issue retrieving information from the database :( ",
+         codeText: "",
+         additonalText: ""
+       });
        }
-     });
+    });
   });
-
 });
 
 app.get("/Portfolio", (req, res) => {
@@ -101,15 +123,23 @@ app.get("/Portfolio", (req, res) => {
      var result = db.collection(databaseInventory).find(query).toArray(function(err, result) {
        if (err) throw err;
        client.close();
-       var test = result[0]
-       res.json({
-         generalText: result[0].generalText,
-         projectText: result[0].projectText,
-         codeText: result[0].codeText
-       });
+       if(result[0] != undefined) {
+         res.json({
+           generalText: result[0].generalText,
+           projectText: result[0].projectText,
+           codeText: result[0].codeText,
+           additonalText: result[0].additonalText
+         });
+       } else {
+            res.json({
+            generalText: "Portfolio",
+            projectText: "There was some issue retrieving information from the database :( ",
+            codeText: "",
+            additonalText: ""
+            });
+        }
      });
   });
-
 });
 
 app.get("/resume", (req, res) => {
@@ -122,13 +152,21 @@ app.get("/resume", (req, res) => {
      var result = db.collection(databaseInventory).find(query).toArray(function(err, result) {
        if (err) throw err;
        client.close();
-       var test = result[0]
-       res.json({
-         generalText: result[0].generalText,
-         projectText: result[0].projectText,
-         codeText: result[0].codeText
-
-       });
+       if(result[0] != undefined) {
+         res.json({
+           generalText: result[0].generalText,
+           projectText: result[0].projectText,
+           codeText: result[0].codeText,
+           additonalText: result[0].additonalText
+         });
+       } else {
+            res.json({
+              generalText: "Home",
+              projectText: "There was some issue retrieving information from the database :( ",
+              codeText: "",
+              additonalText: ""
+            });
+        }
      });
   });
 });
@@ -199,4 +237,10 @@ app.delete("/removeData", (req, res) => {
    console.log("bad authorizaiton")
    res.status(403).json({ error: 'No credentials sent!' });
  }
+});
+
+
+//healthCheck
+app.get("/healtz", (req, res) => {
+  //respond with healthcheck
 });

@@ -25,9 +25,6 @@ class Buttons extends React.Component {
 }
 
 class Home extends React.Component {
-constructor(props) {
-  super(props)
-}
   render() {
     return (
         <div>
@@ -39,7 +36,7 @@ constructor(props) {
           <p id="homeProject">Hello! My name is Austin Doll, I graduated from Central Michigan University in 2018 with a major in Computer Science. I have spent the last three years working at Dynatrace as both a Consultant and a Customer Solutions Engineer. During my time in these roles I have worked with just about every cloud provider that is available along with becoming certified in both Kubernetes and Cloud Foundry. In the future I hope to be in a position to use my knowledge of APM software along with container orchestration to move into a cloud or platform engineering role. The wonderful thing about being in my current position is that I have been allowed to be exposed to just about every platform and technology under the sun. Coming out of college I did not have a firm idea of what I wanted to do within the Computer Science field, with so many choices it was impossible to know without giving something a shot. Over time, I found myself more drawn to infrastructure, in particular cloud infrastructure. From there it made sense to me to get familiar with containers as that seems to be the trend lately. Now, having a strong troubleshooting foundation and a firm understanding of how all of the pieces fit together I feel confident and ready to take on any challenges that may come my way.</p>
           <p>Outside of work, I enjoy Disc Golfing and riding my longboard during the summer and praying the cold away during the winters. One of the hobbies that takes up the most of my time is cooking! I love cooking just about any cuisine I can get my hands on with my current favorites being Italian and Thai style noodles. Along with all of this, I am an avid board game fanatic and absolutely love getting together with some friends and trying out something new.</p>
           </div>
-          <div id="homeright"><img src={portrait} alt="Photo of Austin Doll" id="portrait" /></div>
+          <div id="homeright"><img src={portrait} alt="Autin Doll" id="portrait" /></div>
         </div>
         <div id="additonalText">
         </div>
@@ -50,12 +47,7 @@ constructor(props) {
 
 
 class WebScraper extends React.Component {
-constructor(props) {
-  super(props)
-}
-
   render() {
-    console.log(this.props.codeText)
     return (
         <div>
         <div id="generalDescription">
@@ -81,9 +73,6 @@ constructor(props) {
 
 
 class Portfolio extends React.Component {
-constructor(props) {
-  super(props)
-}
   render() {
 
 
@@ -124,9 +113,6 @@ constructor(props) {
 }
 
 class Contact extends React.Component {
-constructor(props) {
-  super(props)
-}
   render() {
     return (
         <div>
@@ -145,9 +131,6 @@ constructor(props) {
 }
 
 class Resume extends React.Component {
-constructor(props) {
-  super(props)
-}
   render() {
     return (
         <div id="generalDescriptionResume">
@@ -202,8 +185,7 @@ class BodyFeild extends React.Component {
      button
     );
     var clickedHome = "Home";
-    console.log(this.clickedHome);
-    if(clickedHome == this.clickedHome){
+    if(clickedHome === this.clickedHome){
 
       return (
 
@@ -217,7 +199,7 @@ class BodyFeild extends React.Component {
         </div>
       );
     }
-    else if("Contact" == this.clickedHome){
+    else if("Contact" === this.clickedHome){
 
       return (
       //simply place relevant divs, within each div set the relevant state to place text
@@ -230,7 +212,7 @@ class BodyFeild extends React.Component {
       </div>
       );
     }
-    else if("Portfolio" == this.clickedHome){
+    else if("Portfolio" === this.clickedHome){
 
       return (
       //simply place relevant divs, within each div set the relevant state to place text
@@ -243,7 +225,7 @@ class BodyFeild extends React.Component {
       </div>
       );
     }
-    else if("WebScraper" == this.clickedHome){
+    else if("WebScraper" === this.clickedHome){
       return (
       //simply place relevant divs, within each div set the relevant state to place text
       //the state is changed within the grabNewText OnClick, all data is pulled from the mongoDB that backs this
@@ -255,7 +237,7 @@ class BodyFeild extends React.Component {
       </div>
       );
     }
-    else if("Resume" == this.clickedHome){
+    else if("Resume" === this.clickedHome){
       return (
       //simply place relevant divs, within each div set the relevant state to place text
       //the state is changed within the grabNewText OnClick, all data is pulled from the mongoDB that backs this
