@@ -2,8 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import portrait from './photoOfMe.png';
-import resume from './AustinDoll_resume-converted.pdf'
-
+import resume from './AustinDoll_resume-converted.pdf';
+import kubernetesLogo from './logos/kubernetes.png';
+import nodeLogo from './logos/nodeLogo.png';
+import dockerLogo from './logos/dockerlogo.png';
+import pcfLogo from './logos/pcfLogo.png';
+import awsLogo from './logos/awsLogo.png';
 
 //define button class -- set the name and onclick that we inherit from the bodyFeild class.
 class Buttons extends React.Component {
@@ -19,7 +23,7 @@ class Buttons extends React.Component {
   }
   render() {
     return (
-      <a href="/#" name={this.props.name} onClick={this.props.buttonClick} class="styledButton">{this.props.name}</a>
+      <a href="/#" name={this.props.name} onClick={this.props.buttonClick} class={this.props.class}>{this.props.name}</a>
     );
   }
 }
@@ -184,6 +188,16 @@ class BodyFeild extends React.Component {
     const listedButtons = buttonList.map((button) =>
      button
     );
+
+    //testing homepage
+    var buttonList2 = ["Home", "Resume", "WebScraper", "Portfolio", "Contact"];
+    for(var i = 0; i < buttonList.length; i++) {
+      buttonList2[i] = <Buttons name={buttonList2[i]} buttonClick={this.grabNewText.bind(this)} class="welcomeButton"/>
+    }
+    const listedButtons2 = buttonList2.map((button) =>
+     button
+    );
+
     var clickedHome = "Home";
     if(clickedHome === this.clickedHome){
 
@@ -249,23 +263,25 @@ class BodyFeild extends React.Component {
       </div>
       );
     } else return (
-      <div id="bodyFeild">
-        <div id="navBar">
-        {listedButtons}
-        </div>
-        <div id="generalDescription">
-          {this.state.generalText}
-        </div>
-        <div id="projectDescription">
-          {this.state.projectText}
-        </div>
-        <div id={this.state.page}>
-          <pre>{this.state.codeText}</pre>
-        </div>
-        <div id="additonalText">
-          {this.state.additonalText}
-        </div>
-
+        <div id="welcomeWrapper">
+            <div id="welcomeleft">
+              <h1 class="welcomeHeading">Welcome</h1>
+              {listedButtons2}
+            </div>
+            <div id="welcomeright">
+              <div id="welcomeRightWrapper">
+                <p>
+                Welcome to my portfolio! Thank you for stopping by to check it out. This is an ever evolving website as I dive into the (MERN) stack. I initally started with only a basic understanding of web development but have slowly been building my knowledge base as I have worked on this project. I am working on pushing some change every day as well as running this on a small node (ec2 can get expensive) so this site may be up or down depending on if I am actively working on it or if the backend gets evicted due to resource congestion.
+                </p>
+                <div id="welcomeFooter">
+                  <img src={kubernetesLogo} alt="Kubernetes" class="welcomeImages" />
+                  <img src={nodeLogo} alt="node.js" class="welcomeImages" />
+                  <img src={dockerLogo} alt="Docker" class="welcomeImages" />
+                  <img src={pcfLogo} alt="PCF" class="welcomeImages" />
+                  <img src={awsLogo} alt="AWS" class="welcomeImages" />
+                </div>
+              </div>
+            </div>
       </div>
     );
   }
