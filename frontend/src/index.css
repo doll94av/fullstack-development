@@ -30,8 +30,6 @@ pre {
   height: 100%;
 }
 
-
-
 .heading {
   font-family: 'Cairo', sans-serif;
   font-size: 25px;
@@ -40,28 +38,6 @@ pre {
   background-color: rgb(94, 145, 195);
   color: white;
 	text-shadow:0px 1px 0px #283966;
-}
-
-.styledButton {
-  margin-left: 2px;
-  margin-right: 2px;
-	background-color:rgb(94, 145, 195);
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:19px;
-	padding:12px 37px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #283966;
-
-}
-.styledButton:hover {
-	background-color:rgb(108, 155, 202);
-}
-.styledButton:active {
-	position:relative;
-	top:1px;
 }
 
 
@@ -82,19 +58,18 @@ pre {
   min-height: 300px;
 }
 
+
+#navBar {
+  border-bottom: solid rgba(0, 0, 0, .2);
+  border-radius: 21px 21px 0px 1px;
+  text-align: center;
+  background-color: rgb(94, 145, 195);
+
+}
+
 /**
 welcome page css
 **/
-
-/* #welcomePage {
-  background-color: rgb(12, 50, 79);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  min-height: 100vh;
-} */
 
 .welcomeImages {
   width: 120px;
@@ -127,7 +102,7 @@ welcome page css
   color: rgb(255, 153, 61);
 }
 
-.welcomeHeading {
+.Heading {
   margin-top:30%;
   font-size: 80px;
 }
@@ -143,23 +118,24 @@ welcome page css
   text-align: center;
   color: white;
 }
-#welcomeright {
+#contentRight {
   width: 50%;
   height: 100%;
   float: right;
   font-size: 20px;
 }
 
-#welcomeRightWrapper {
+#RightWrapper {
   background-color: white;
   min-width: 50%;
   min-height: 50%;
   border: solid;
+  border-color: rgb(255, 153, 61);
   border-radius: 20px;
   margin: 20% 2% 0 0;
   padding: 10px 0px 10px 10px;
   position: relative;
-
+  background-color: #f8f8ff;
 }
 
 #welcomeFooter {
@@ -169,37 +145,31 @@ welcome page css
 /**
 end welcome
 **/
-#navBar {
-  border-bottom: solid rgba(0, 0, 0, .2);
-  border-radius: 21px 21px 0px 1px;
-  text-align: center;
-  background-color: rgb(94, 145, 195);
-
-}
 
 
 /**
 Home page css
 **/
 
-
-
 #projectDescriptionHome {
-  margin-top: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
   display: flex;
 }
 
+
 #homeleft {
-  width: auto;
+  width: 50%;
+  height: 100%;
+  float: left;
+  text-align: center;
+  color: white;
 }
-#homeright {
-  width: 25%;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-top: 10px;
+#homeRight {
+  width: 50%;
+  height: 100%;
+  float: right;
+  font-size: 20px;
 }
+
 
 #portrait {
   width: 200px;
@@ -208,24 +178,23 @@ Home page css
   border-width: 4px;
   border-radius: 20px;
   float: right;
+  margin: 20px 10px 2px 12px;
 }
+
+#contenthomeleft {
+  width: auto%;
+}
+#contenthomeright {
+  width: 25%;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  height: 200px;
+}
+
 /*
   end home page CSS
  */
-
-
-/*
-begin resume css
-*/
-.importedResume {
-  width: 100%;
-  height: 800px;
-  border-radius: 0px 0px 15px 15px;
-}
-
-/*
-end resume css
-*/
 
 /*
 Portfolio css
@@ -236,30 +205,24 @@ Portfolio css
 }
 #portfolioRight {
   width: 25%;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-top: 1px;
-
+  float: right;
+  margin-right: 20px;
 }
 
-.dockerLink {
-  padding-left:100px;
-  text-decoration: none;
-}
 #portfolioYaml {
   border: solid;
+  width: 100%;
   border-color: grey;
   border-width: 1px;
   margin-bottom: 15px;
   margin-left: 5px;
-  margin-right: 10px;
+  margin-right: 50px;
   padding-left: 2px;
   padding-bottom: 1px;
   padding-top: 1px;
   background-color: rgb(238, 240, 240);
   font-size: 12px;
   font-family: sans-serif;
-  min-width: 280px;
   white-space: pre;
 }
 
@@ -281,21 +244,52 @@ Portfolio css
 }
 
 .testbutton:hover {
-  color:rgb(218, 247, 215);
+  background-color:rgb(114, 165, 215);
 
 }
 
-
-
 #test {
- width:100%;
  text-align: center;
 }
 /*
 end portfolio CSS
-*>
+*/
 
 
+/*
+Start resume CSS
+*/
+
+#resumeRightWrapper {
+  width: 100%;
+  height: 100%;
+  height: auto;
+}
+
+#resumeRight{
+  width: 50%;
+  height: 100%;
+  float: right;
+  font-size: 20px;
+}
+
+
+.importedResume {
+  background-color: white;
+  width:98%;
+  height: 700px;
+  border: solid;
+  border-color: rgb(255, 153, 61);
+  border-radius: 20px;
+  margin: 20% 2% 0 0;
+  position: relative;
+}
+
+
+
+/*
+end resume css
+*/
 /*
   possibly going to be deprecated
  */
@@ -348,39 +342,4 @@ these all reference the same text block, essentially we will style the codeSnipp
   background-color: rgb(238, 240, 240);
   font-size: 12px;
   font-family: sans-serif;
-}
-
-#Portfolio {
-  border: solid;
-  border-color: grey;
-  border-width: 1px;
-  margin-bottom: 15px;
-  margin-left: 10px;
-  margin-right: 10px;
-  padding-left: 10px;
-  padding-bottom: 1px;
-  padding-top: 1px;
-  background-color: rgb(238, 240, 240);
-  font-size: 12px;
-  font-family: sans-serif;
-}
-
-#Home {
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-left: 10px;
-}
-
-#Resume {
-  padding-left: 10px;
-  padding-right: 5px;
-  font-size: 14px;
-  font-family: 'Noto Sans', sans-serif;
-}
-
-#Contact {
-  margin-left:10%;
-  padding-left: 10px;
-  padding-right: 5px;
-  font-family: serif;
 }
