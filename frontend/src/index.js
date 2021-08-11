@@ -148,7 +148,7 @@ class Resume extends React.Component {
     return (
       <div id="welcomeWrapper">
           <div id="welcomeleft">
-            <h1 class="Heading">Welcome</h1>
+            <h1 class="Heading">Resume</h1>
             {this.props.navBar}
           </div>
           <div id="resumeRight">
@@ -263,7 +263,7 @@ class BodyFeild extends React.Component {
                   <img src={nodeLogo} alt="node.js" class="welcomeImages" />
                   <img src={dockerLogo} alt="Docker" class="welcomeImages" />
                   <img src={pcfLogo} alt="PCF" class="welcomeImages" />
-                  <img src={awsLogo} alt="AWS" class="welcomeImages" />
+                  <img src={awsLogo} alt="AWS" style={{width: "180px"}}/>
                 </div>
               </div>
             </div>

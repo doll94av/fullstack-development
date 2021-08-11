@@ -166,6 +166,7 @@ app.get("/resume", (req, res) => {
               codeText: "",
               additonalText: ""
             });
+            res.end();
         }
      });
   });
@@ -241,6 +242,7 @@ app.delete("/removeData", (req, res) => {
 
 
 //healthCheck
-app.get("/healtz", (req, res) => {
+app.get("/healthz", (req, res) => {
   //respond with healthcheck
+  res.sendStatus(200);
 });
