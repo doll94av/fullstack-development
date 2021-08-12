@@ -28,6 +28,8 @@ class Buttons extends React.Component {
   }
 }
 
+//each page has its own class and is checked for by an if else statement for which one to be displayed
+//There are still some calls to the database as it stores the formatted text appropriately which makes things a bit easier :)
 class Home extends React.Component {
   render() {
     return (
@@ -108,7 +110,7 @@ class Portfolio extends React.Component {
                   <p>CMD ["npm", "start"]</p>
                   </div>
                   <div id ="test">
-                  <a href="https://github.com/doll94av/fullstack-development" class="testbutton">Github Repo</a>
+                    <a href="https://github.com/doll94av/fullstack-development" class="testbutton">Github Repo</a>
                   </div>
                   </div>
                   <p>On the right I have included my Dockerfile as an example, both the frontend and backend use a similar layout. The foundation of this project started with the goal of being able to implement a fullstack project it only made sense to start with the smallest building block I can with a Dockerfile. Simply put, this Dockerfile gathers the latest image from node, copies both of my package scripts for startup, installs NPM then starts my application. A minor improvement I could make is actually producing a production level application with npm build over npm start, but for this project a quicker startup time is helpful for the constant changing in the source code. I have pushed this file to Dockerhub and use this as a base to my Kubernetes deployment definition. Both the frontend and backend run in single pod deployments, which is not optimal for high availability but it keeps the cost down for personal projects 😊. From there I exposed both deployments publicly with the frontend being the IP/pod combo that you are accessing this website at. Overall, this portion of the project provided the bit of hands on from start to finish Kubernetes experience that I felt that I needed.
@@ -132,10 +134,10 @@ class Contact extends React.Component {
           </div>
           <div id="contentRight">
             <div id="RightWrapper">
-            <p>Please feel free to contact me using any of the below:</p>
-            <p>Email: austindoll94@gmail.com</p>
-            <p>Phone: (248) 820-9684</p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/austindoll40/">Linkedin.com/austindoll40</a></p>
+              <p>Please feel free to contact me using any of the below:</p>
+              <p>Email: austindoll94@gmail.com</p>
+              <p>Phone: (248) 820-9684</p>
+              <p>LinkedIn: <a href="https://www.linkedin.com/in/austindoll40/">Linkedin.com/austindoll40</a></p>
             </div>
           </div>
       </div>
@@ -153,7 +155,7 @@ class Resume extends React.Component {
           </div>
           <div id="resumeRight">
             <div id="resumeRightWrapper">
-            <iframe src="https://drive.google.com/file/d/1BtIa6aOAowaVkKtXSx783J3FPJHdlROL/preview" class="importedResume" allow="autoplay"></iframe>
+              <iframe src="https://drive.google.com/file/d/1BtIa6aOAowaVkKtXSx783J3FPJHdlROL/preview" class="importedResume" allow="autoplay"></iframe>
             </div>
           </div>
       </div>
