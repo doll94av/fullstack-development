@@ -252,7 +252,9 @@ class BodyFeild extends React.Component {
     } else return (
         <div id="welcomeWrapper">
             <div id="welcomeleft">
+              <div id="test2">
               <h1 class="Heading">Welcome</h1>
+              </div>
               {listedButtons}
             </div>
             <div id="contentRight">
