@@ -300,10 +300,7 @@ Start resume CSS
 
 /*
 end resume css
-*
-/*
-  possibly going to be deprecated
- */
+*/
 #generalDescription {
   font-size: 15px;
   text-align: center;
@@ -320,24 +317,6 @@ end resume css
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 15px;
-}
-
-/**
-these all reference the same text block, essentially we will style the codeSnippet block based on the button that is clicked
-**/
-#codeSnippet {
-  border: solid;
-  border-color: grey;
-  border-width: 1px;
-  margin-bottom: 15px;
-  margin-left: 10px;
-  margin-right: 10px;
-  padding-left: 10px;
-  padding-bottom: 1px;
-  padding-top: 1px;
-  background-color: rgba(255, 250, 248, 1);
-  font-size: 12px;
-  font-family: sans-serif;
 }
 
 #WebScraper {
