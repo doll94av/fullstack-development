@@ -21,6 +21,9 @@ app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
 
+app.get("/", (req, res) => {
+  res.sendStatus(200);
+});
 
 //begin the get requests! Below should correspond to every button in the front-end
 //within each 'get' set the appropriate access control header - this is a variable at the top of the script -
