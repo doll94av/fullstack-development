@@ -182,7 +182,7 @@ class BodyFeild extends React.Component {
     //currently this works with no spaces (might want to add logic to trim spaces if I really care about it)
     //Strucutre in the backend mimics what we have in the frontend so sending data back and fourth is clear
     //fetch('http://localhost:3001/'+ event.target.name)
-    fetch('http://35.172.216.189:32392/'+ event.target.name)
+    fetch('http://18.181.184.80:31869/'+ event.target.name)
       .then(response => response.json())
       .then(data =>
         this.setState({
