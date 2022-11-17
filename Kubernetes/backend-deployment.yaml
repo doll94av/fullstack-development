@@ -18,7 +18,7 @@ spec:
         app: portfolio-backend
     spec:
       containers:
-      - image: doll1av/backend:v1.00
+      - image: doll1av/backend:testing
         name: backend
         ports:
         - containerPort: 3001
