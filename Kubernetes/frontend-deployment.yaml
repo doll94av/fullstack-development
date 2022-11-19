@@ -18,9 +18,9 @@ spec:
         app: portfolio-frontend
     spec:
       containers:
-      - image: doll1av/frontend:v1.07
-        name: frontend
-        ports:
-        - containerPort: 3000
-        resources: {}
+        - image: doll1av/frontend:105
+          name: frontend
+          ports:
+            - containerPort: 3000
+          resources: {}
 status: {}
