@@ -1,0 +1,1 @@
+Simple jenkins file to run docker in docker, build an image based off this repo, push it to dockerhub, then update the resource in /Kubernetes so that the CD pipeline automatically deploys the latest image
