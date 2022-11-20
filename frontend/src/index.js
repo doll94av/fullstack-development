@@ -182,17 +182,17 @@ class BodyFeild extends React.Component {
     //currently this works with no spaces (might want to add logic to trim spaces if I really care about it)
     //Strucutre in the backend mimics what we have in the frontend so sending data back and fourth is clear
     //fetch('http://localhost:3001/'+ event.target.name)
-    fetch('portfolio-backend.default.svc.cluster.local:3001/'+ event.target.name)
-      .then(response => response.json())
-      .then(data =>
-        this.setState({
-          generalText: <h1>{data.generalText}</h1>,
-          projectText: data.projectText,
-          codeText: data.codeText,
-          additonalText: data.additonalText,
-          page: event.target.name
-        }),
-      );
+    //fetch('portfolio-backend.default.svc.cluster.local:3001/'+ event.target.name)
+    //  .then(response => response.json())
+    //  .then(data =>
+    //    this.setState({
+    //      generalText: <h1>{data.generalText}</h1>,
+    //     projectText: data.projectText,
+     //     codeText: data.codeText,
+    //      additonalText: data.additonalText,
+    //      page: event.target.name
+    //    }),
+    //  );
 
     //this is the button that was clicked
     this.clickedHome=event.target.name;

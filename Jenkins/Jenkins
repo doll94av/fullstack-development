@@ -1,0 +1,74 @@
+pipeline {
+    environment {
+    IMAGE_VERSION='doll1av/frontend:' 
+    }
+  agent {
+    kubernetes {
+      yaml """
+apiVersion: v1
+kind: Pod
+metadata:
+labels:
+  component: ci
+spec:
+  # Use service account that can deploy to all namespaces
+  containers:
+  - name: docker
+    image: doll1av/docker:latest
+    command:
+    - cat
+    tty: true
+    volumeMounts:
+    - mountPath: /var/run/docker.sock
+      name: docker-sock
+    securityContext:
+      allowPrivilegeEscalation: true
+      runAsUser: 0
+  volumes:
+    - name: docker-sock
+      hostPath:
+        path: /var/run/docker.sock
+"""
+}
+   }
+  stages {
+    stage('Build') {
+      steps {
+        git branch: 'main', url: 'https://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@github.com/doll94av/fullstack-development.git'
+
+      }
+    }
+    stage('Push') {
+      steps {
+        container('docker') {
+          sh 'apk --no-cache add yq'
+          sh 'apk --no-cache add gettext libintl'
+          sh 'docker build -t doll1av/frontend:${BUILD_NUMBER} ./frontend'
+          sh 'docker login -u doll1av -p dckr_pat_btKusH7dCSMs0euDZhuQicsJxds'
+          sh 'docker push doll1av/frontend:${BUILD_NUMBER}'
+        }
+      }
+    }
+    stage('Update manifest') {
+      steps {
+        container('docker') {
+          sh 'IMAGE_VERSION2=$IMAGE_VERSION$BUILD_NUMBER /usr/bin/yq -i \'.spec.template.spec.containers[0].image = env(IMAGE_VERSION2)\' ./Kubernetes/frontend-deployment.yaml'
+          sh 'cat ./Kubernetes/frontend-deployment.yaml'
+        }
+   
+
+      }
+      }
+    stage('push to git') {
+      steps {
+        sh 'git checkout main '
+        sh 'git config --global user.email "austindoll94@gmail.com"'
+        sh 'git config --global user.name "austin "'
+        sh 'git commit -am "Updated version number"'
+        //sh 'git remote add origin \'https://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@github.com/doll1av/fullstack-development.git\''
+        sh 'git push origin main'
+  
+      }
+    }
+    }
+  }
