@@ -44,7 +44,7 @@ spec:
           sh 'apk --no-cache add yq'
           sh 'apk --no-cache add gettext libintl'
           sh 'docker build -t doll1av/frontend:${BUILD_NUMBER} ./frontend'
-          sh 'docker login -u doll1av -p dckr_pat_btKusH7dCSMs0euDZhuQicsJxds'
+          sh 'docker login -u doll1av -p @password'
           sh 'docker push doll1av/frontend:${BUILD_NUMBER}'
         }
       }
