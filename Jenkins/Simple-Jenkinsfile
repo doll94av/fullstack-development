@@ -1,0 +1,36 @@
+// Jenkinsfile
+pipeline {
+    // Uses the default agent, which is typically the Jenkins controller
+    // or any worker node that doesn't have a specific label requirement.
+    agent any
+
+    // IMPORTANT: This block tells Jenkins to provision the specified Node.js version.
+    // Replace 'NodeJS_Latest' with the exact name you have configured
+    // in 'Manage Jenkins' -> 'Global Tool Configuration' for your Node.js setup.
+
+    stages {
+        stage('Checkout Repository') {
+            steps {
+                // Clones the specified GitHub repository.
+                git url: 'https://github.com/doll94av/fullstack-development', branch: 'main' 
+            }
+        }
+
+        stage('Build Project') {
+            steps {
+                // The 'tools' directive ensures 'npm' is available to these steps.
+                dir('frontend') { 
+                    echo "--- Installing and building client dependencies in client/ ---"
+                    sh 'npm install'
+                    sh 'npm run build'
+                }
+                dir('backend') { 
+                    echo "--- Installing server dependencies in server/ ---"
+                    sh 'npm install'
+                    // Server side often only needs 'npm install', but a build command 
+                    // like 'npm run compile' may be needed for TypeScript/Babel projects.
+                }
+            }
+        }
+    }
+}
